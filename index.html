@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스마트마켓 - 최고의 온라인 쇼핑몰</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <!-- EmailJS 라이브러리 추가 -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+  <!-- 상단 배너 -->
+  <div class="top-banner">
+    <div class="container">
+      <span><i class="fas fa-truck"></i> 무료배송 5만원 이상</span>
+      <span><i class="fas fa-shield-alt"></i> 안전한 결제</span>
+      <span><i class="fas fa-undo"></i> 7일 무료반품</span>
+    </div>
+  </div>
+
+  <!-- 헤더 -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-top">
+        <div class="logo">
+          <a href="index.html"><h1><i class="fas fa-shopping-cart"></i> 스마트마켓</h1></a>
+        </div>
+        <div class="search-bar">
+          <input type="text" id="search-input" placeholder="찾으시는 상품을 검색해보세요">
+          <button onclick="searchProducts()"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="user-menu" onclick="showLoginModal()"><i class="fas fa-user"></i> 로그인</a>
+          <a href="#" class="cart-menu" onclick="showCart()"><i class="fas fa-shopping-bag"></i> 장바구니 <span class="cart-count">0</span></a>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" id="nav-home">홈</a></li>
+          <li><a href="products.html" id="nav-products">전체상품</a></li>
+          <li><a href="sale.html" id="nav-sale">특가상품</a></li>
+          <li><a href="new.html" id="nav-new">신상품</a></li>
+          <li><a href="contact.html" id="nav-contact">고객센터</a></li>
+        </ul>
+    </nav>
+    </div>
+  </header>
+
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <!-- 히어로 섹션 -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              <span class="gradient-text">스마트한 쇼핑의 시작</span>
+            </h1>
+            <p class="hero-subtitle">최고의 품질과 합리적인 가격으로 만나는 스마트마켓</p>
+            <div class="hero-features">
+              <div class="feature">
+                <i class="fas fa-shipping-fast"></i>
+                <span>무료배송</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <span>안전결제</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-undo"></i>
+                <span>7일반품</span>
+              </div>
+            </div>
+            <div class="hero-buttons">
+              <button class="hero-btn primary" onclick="scrollToProducts()">
+                <i class="fas fa-shopping-bag"></i> 쇼핑 시작하기
+              </button>
+              <button class="hero-btn secondary" onclick="showEventDetails()">
+                <i class="fas fa-gift"></i> 특별이벤트 보기
+              </button>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="image-container">
+              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop&crop=center" alt="스마트마켓">
+              <div class="floating-card">
+                <div class="card-content">
+                  <i class="fas fa-star"></i>
+                  <span>오늘의 특가</span>
+                  <strong>최대 70% 할인</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 특별이벤트 섹션 -->
+    <section class="special-event-section">
+      <div class="container">
+        <div class="event-content">
+          <div class="event-header">
+            <h2 class="event-title">
+              <i class="fas fa-gift"></i>
+              <span class="gradient-text">특별이벤트</span>
+            </h2>
+            <p class="event-subtitle">첫 구매 고객님을 위한 특별한 혜택!</p>
+          </div>
+          <div class="event-cards">
+            <div class="event-card">
+              <div class="card-icon">
+                <i class="fas fa-percentage"></i>
+              </div>
+              <h3>첫 구매 할인</h3>
+              <p>첫 구매 시 최대 20% 할인</p>
+            </div>
+            <div class="event-card">
+              <div class="card-icon">
+                <i class="fas fa-truck"></i>
+              </div>
+              <h3>무료배송</h3>
+              <p>5만원 이상 구매 시 무료배송</p>
+            </div>
+            <div class="event-card">
+              <div class="card-icon">
+                <i class="fas fa-gift"></i>
+              </div>
+              <h3>사은품 증정</h3>
+              <p>10만원 이상 구매 시 사은품</p>
+            </div>
+          </div>
+          <div class="event-buttons">
+            <button class="event-btn primary" onclick="participateEvent()">
+              <i class="fas fa-star"></i> 특별이벤트 참여하기
+            </button>
+            <button class="event-btn secondary" onclick="showEventDetails()">
+              <i class="fas fa-info-circle"></i> 이벤트 상세보기
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 특가 상품 섹션 -->
+    <section id="sale" class="products-section">
+      <div class="container">
+        <div class="section-header">
+          <h2><i class="fas fa-fire"></i> 🔥 오늘의 특가</h2>
+          <p>한정 시간 특가로 만나는 놀라운 가격!</p>
+        </div>
+        
+        <!-- 특가 타이머 -->
+        <div class="sale-timer">
+          <h3><i class="fas fa-clock"></i> 특가 종료까지</h3>
+          <div class="timer-display">
+            <div class="timer-unit">
+              <span id="sale-hours">12</span>
+              <label>시간</label>
+            </div>
+            <div class="timer-unit">
+              <span id="sale-minutes">30</span>
+              <label>분</label>
+            </div>
+            <div class="timer-unit">
+              <span id="sale-seconds">45</span>
+              <label>초</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="products-grid">
+          <div class="product-card sale flash-sale">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center" alt="프리미엄 블루투스 이어폰">
+              <span class="sale-badge">-30%</span>
+              <span class="flash-badge">FLASH</span>
+            </div>
+            <div class="product-info">
+              <h3><a href="product-detail.html?id=A">프리미엄 블루투스 이어폰</a></h3>
+              <div class="price">
+                <span class="original-price">₩89,000</span>
+                <span class="sale-price">₩62,300</span>
+              </div>
+              <div class="sale-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 75%"></div>
+                </div>
+                <div class="remaining">75% 남음</div>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(128)</span>
+              </div>
+              <button class="buy-btn" data-product="A" data-price="62300">
+                <i class="fas fa-shopping-cart"></i> 구매하기
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card sale">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center" alt="스마트 워치 프로">
+              <span class="sale-badge">-20%</span>
+            </div>
+            <div class="product-info">
+              <h3><a href="product-detail.html?id=B">스마트 워치 프로</a></h3>
+              <div class="price">
+                <span class="original-price">₩299,000</span>
+                <span class="sale-price">₩239,200</span>
+              </div>
+              <div class="sale-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 60%"></div>
+                </div>
+                <div class="remaining">60% 남음</div>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(95)</span>
+              </div>
+              <button class="buy-btn" data-product="B" data-price="239200">
+                <i class="fas fa-shopping-cart"></i> 구매하기
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card sale">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1609592806596-b43b7c1bafb8?w=400&h=400&fit=crop&crop=center" alt="무선 충전 패드">
+              <span class="sale-badge">-15%</span>
+            </div>
+            <div class="product-info">
+              <h3><a href="product-detail.html?id=C">무선 충전 패드</a></h3>
+              <div class="price">
+                <span class="original-price">₩45,000</span>
+                <span class="sale-price">₩38,250</span>
+              </div>
+              <div class="sale-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 85%"></div>
+                </div>
+                <div class="remaining">85% 남음</div>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(67)</span>
+              </div>
+              <button class="buy-btn" data-product="C" data-price="38250">
+                <i class="fas fa-shopping-cart"></i> 구매하기
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 특가상품 더보기 버튼 -->
+        <div class="section-more">
+          <a href="sale.html" class="more-btn">
+            <i class="fas fa-fire"></i> 특가상품 더보기
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 신상품 섹션 -->
+    <section class="products-section">
+      <div class="container">
+        <div class="section-header">
+          <h2><i class="fas fa-star"></i> ⭐ 신상품</h2>
+          <p>최신 트렌드를 반영한 새로운 상품들을 만나보세요</p>
+        </div>
+        
+        <!-- 신상품 타이머 -->
+        <div class="new-timer">
+          <h3><i class="fas fa-clock"></i> 신상품 출시 카운트다운</h3>
+          <div class="timer-display">
+            <div class="timer-unit">
+              <span id="new-hours">24</span>
+              <label>시간</label>
+            </div>
+            <div class="timer-unit">
+              <span id="new-minutes">00</span>
+              <label>분</label>
+            </div>
+            <div class="timer-unit">
+              <span id="new-seconds">00</span>
+              <label>초</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="products-grid">
+          <div class="product-card new">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=400&fit=crop&crop=center" alt="AI 스피커 스마트홈">
+              <span class="new-badge">NEW</span>
+              <span class="trending-badge">HOT</span>
+            </div>
+            <div class="product-info">
+              <h3><a href="product-detail.html?id=D">AI 스피커 스마트홈</a></h3>
+              <div class="price">
+                <span class="price">₩159,000</span>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(42)</span>
+              </div>
+              <button class="buy-btn" data-product="D" data-price="159000">
+                <i class="fas fa-shopping-cart"></i> 구매하기
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card new">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop&crop=center" alt="게이밍 키보드 RGB">
+              <span class="new-badge">NEW</span>
+              <span class="trending-badge">TRENDING</span>
+            </div>
+            <div class="product-info">
+              <h3><a href="product-detail.html?id=E">게이밍 키보드 RGB</a></h3>
+              <div class="price">
+                <span class="price">₩89,000</span>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(78)</span>
+              </div>
+              <button class="buy-btn" data-product="E" data-price="89000">
+                <i class="fas fa-shopping-cart"></i> 구매하기
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card new">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?w=400&h=400&fit=crop&crop=center" alt="스마트 LED 조명">
+              <span class="new-badge">NEW</span>
+            </div>
+            <div class="product-info">
+              <h3><a href="product-detail.html?id=F">스마트 LED 조명</a></h3>
+              <div class="price">
+                <span class="price">₩75,000</span>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(31)</span>
+              </div>
+              <button class="buy-btn" data-product="F" data-price="75000">
+                <i class="fas fa-shopping-cart"></i> 구매하기
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="section-more">
+          <a href="new.html" class="more-btn">
+            <i class="fas fa-chevron-right"></i> 신상품 더보기
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 전체상품 섹션 -->
+    <section id="all-products" class="products-section">
+      <div class="container">
+        <div class="section-header">
+          <h2><i class="fas fa-th-large"></i> 전체상품</h2>
+          <p>다양한 카테고리의 모든 상품을 한눈에 확인하세요</p>
+        </div>
+        
+        <!-- 카테고리 필터 -->
+        <div class="category-filter">
+          <button class="filter-btn active" data-category="all">
+            <i class="fas fa-th"></i> 전체
+          </button>
+          <button class="filter-btn" data-category="tech">
+            <i class="fas fa-mobile-alt"></i> 스마트폰/가전
+          </button>
+          <button class="filter-btn" data-category="accessory">
+            <i class="fas fa-headphones"></i> 액세서리
+          </button>
+          <button class="filter-btn" data-category="home">
+            <i class="fas fa-home"></i> 홈/리빙
+          </button>
+        </div>
+
+        <div class="products-grid">
+          <div class="product-card" data-category="accessory">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop&crop=center" alt="노트북 스탠드">
+            </div>
+            <div class="product-info">
+              <h3><a href="product-detail.html?id=G">노트북 스탠드</a></h3>
+              <div class="price">
+                <span class="price">₩35,000</span>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(156)</span>
+              </div>
+              <button class="buy-btn" data-product="G" data-price="35000">
+                <i class="fas fa-shopping-cart"></i> 구매하기
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="accessory">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop&crop=center" alt="무선 마우스">
+            </div>
+            <div class="product-info">
+              <h3><a href="product-detail.html?id=H">무선 마우스</a></h3>
+              <div class="price">
+                <span class="price">₩25,000</span>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(203)</span>
+              </div>
+              <button class="buy-btn" data-product="H" data-price="25000">
+                <i class="fas fa-shopping-cart"></i> 구매하기
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card" data-category="accessory">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31?w=400&h=400&fit=crop&crop=center" alt="USB-C 케이블">
+            </div>
+            <div class="product-info">
+              <h3><a href="product-detail.html?id=I">USB-C 케이블</a></h3>
+              <div class="price">
+                <span class="price">₩12,000</span>
+              </div>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(89)</span>
+              </div>
+              <button class="buy-btn" data-product="I" data-price="12000">
+                <i class="fas fa-shopping-cart"></i> 구매하기
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="section-more">
+          <a href="products.html" class="more-btn">
+            <i class="fas fa-chevron-right"></i> 전체상품 더보기
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 고객센터 섹션 -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2><i class="fas fa-headset"></i> 고객센터</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>고객지원</h3>
+            <p><i class="fas fa-phone"></i> 1588-1234</p>
+            <p><i class="fas fa-clock"></i> 평일 09:00 - 18:00</p>
+            <p><i class="fas fa-envelope"></i> support@smartmarket.co.kr</p>
+          </div>
+          <div class="contact-form">
+            <h3>1:1 문의하기</h3>
+      <form id="contact-form">
+              <div class="form-group">
+                <input type="text" name="name" id="contact-name" placeholder="이름" required>
+              </div>
+              <div class="form-group">
+                <select name="category" id="contact-category" required>
+                  <option value="">문의 카테고리 선택</option>
+                  <option value="order">주문/결제</option>
+                  <option value="delivery">배송</option>
+                  <option value="return">반품/교환</option>
+                  <option value="product">상품문의</option>
+                  <option value="other">기타</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <textarea name="message" id="contact-message" placeholder="문의 내용을 자세히 적어주세요" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i> 문의하기
+              </button>
+      </form>
+          </div>
+        </div>
+        
+        <!-- 고객센터 더보기 버튼 -->
+        <div class="section-more">
+          <a href="contact.html" class="more-btn">
+            <i class="fas fa-headset"></i> 고객센터 더보기
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 로그인 모달 -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeLoginModal()">&times;</span>
+      <h2><i class="fas fa-user"></i> 로그인</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <input type="email" placeholder="이메일" required>
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="비밀번호" required>
+        </div>
+        <button type="submit" class="login-btn">
+          <i class="fas fa-sign-in-alt"></i> 로그인
+        </button>
+      </form>
+      <div class="login-links">
+        <a href="#">회원가입</a>
+        <a href="#">비밀번호 찾기</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 장바구니 모달 -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content cart-modal">
+      <span class="close" onclick="closeCartModal()">&times;</span>
+      <h2><i class="fas fa-shopping-cart"></i> 장바구니</h2>
+      <div id="cart-items" class="cart-items">
+        <!-- 장바구니 아이템들이 여기에 동적으로 추가됩니다 -->
+      </div>
+      <div class="cart-total">
+        <div class="total-info">
+          <span>총 상품금액:</span>
+          <span id="cart-total-price">₩0</span>
+        </div>
+        <div class="total-info">
+          <span>배송비:</span>
+          <span id="cart-shipping">₩0</span>
+        </div>
+        <div class="total-info final">
+          <span>결제예정금액:</span>
+          <span id="cart-final-price">₩0</span>
+        </div>
+      </div>
+      <div class="cart-actions">
+        <button class="cart-clear-btn" onclick="clearCart()">
+          <i class="fas fa-trash"></i> 장바구니 전체 삭제
+        </button>
+        <button class="cart-checkout-btn" onclick="checkout()">
+          <i class="fas fa-credit-card"></i> 주문하기
+        </button>
+        <button class="cart-continue-btn" onclick="closeCartModal()">
+          <i class="fas fa-shopping-bag"></i> 쇼핑 계속하기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html> 
