@@ -1,5 +1,5 @@
 # GA4 실습용 쇼핑몰 웹사이트
-https://splendid-swan-c1891e.netlify.app/
+smartmarket-ga4.netlify.app
 
 Google Analytics 4 (GA4) 실습을 위한 반응형 쇼핑몰 웹사이트입니다.
 
